@@ -1,22 +1,25 @@
 import Foundation
 
-public class Node {
-    var value : String
+public class Node<T>{
+    var value : T
     var next : Node?
     weak var prev : Node?
-    init(value : String){
+    init(value : T){
         self.value = value
     }
 }
 
-class LinkedList{
-    var head : Node?
-    var tail : Node?
+class LinkedList<T>{
+    var head : Node<T>?
+    var tail : Node<T>?
+    var length : Int {
+        return listLength()
+    }
 
     init(){
     }
 
-    init(head : Node){
+    init(head : Node<T>){
         self.head = head
     }
 
@@ -24,15 +27,15 @@ class LinkedList{
         return head == nil
     }
 
-    func first() -> Node? {
+    func first() -> Node<T>? {
         return head
     }
 
-    func last() -> Node? {
+    func last() -> Node<T>? {
         return tail
     }
 
-    func append(value : String) {
+    func append(value : T) {
         // create new node
         let newNode = Node(value : value)
         // check if tail node is present
@@ -55,8 +58,8 @@ class LinkedList{
         tail = nil
     }
 
-    func nodeAt(index : Int) -> Node? {
-        if(index >= 0 && index < length()){
+    func nodeAt(index : Int) -> Node<T>? {
+        if(index >= 0 && index < listLength()){
             var node = head
             var i = index
             while node != nil {
@@ -68,7 +71,7 @@ class LinkedList{
         return nil
     }
 
-    func length() -> Int{
+    private func listLength() -> Int{
         var count : Int = 0
         var node : Node? = head
         while  node != nil {
@@ -91,7 +94,7 @@ extension LinkedList : CustomStringConvertible {
     }
 }
 
-let list = LinkedList()
+let list = LinkedList<String>()
 list.append(value : "Dog")
 list.append(value : "Cat")
 list.append(value : "Horse")
@@ -105,4 +108,4 @@ if let node = list.nodeAt(index : 6) {
     print("Index out of bounds")
 }
 
-print(list.length())
+print(list.length)
