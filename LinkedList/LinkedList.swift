@@ -12,12 +12,8 @@ public class Node<T>{
 class LinkedList<T>{
     var head : Node<T>?
     var tail : Node<T>?
-    var length : Int {
-        return listLength()
-    }
 
-    init(){
-    }
+    init(){}
 
     init(head : Node<T>){
         self.head = head
@@ -27,15 +23,15 @@ class LinkedList<T>{
         return head == nil
     }
 
-    func first() -> Node<T>? {
+    var first : Node<T>?{
         return head
     }
 
-    func last() -> Node<T>? {
+    var last : Node<T>? {
         return tail
     }
 
-    func append(value : T) {
+    func append(_ value : T) {
         // create new node
         let newNode = Node(value : value)
         // check if tail node is present
@@ -59,7 +55,7 @@ class LinkedList<T>{
     }
 
     func nodeAt(index : Int) -> Node<T>? {
-        if(index >= 0 && index < listLength()){
+        if(index >= 0 && index < count){
             var node = head
             var i = index
             while node != nil {
@@ -71,8 +67,8 @@ class LinkedList<T>{
         return nil
     }
 
-    private func listLength() -> Int{
-        var count : Int = 0
+    var count : Int{
+        var count = 0
         var node : Node? = head
         while  node != nil {
             count += 1
@@ -108,4 +104,4 @@ if let node = list.nodeAt(index : 6) {
     print("Index out of bounds")
 }
 
-print(list.length)
+print(list.count)
