@@ -1,10 +1,12 @@
-import Foundation
+//: Playground - noun: a place where people can play
+
+import UIKit
 
 class Node<T> {
     var value: T
     var next: Node?
     weak var prev: Node?
-    
+
     init(value: T) {
         self.value = value
     }
@@ -13,25 +15,25 @@ class Node<T> {
 class LinkedList<T> {
     var head: Node<T>?
     var tail: Node<T>?
-    
+
     init() {}
-    
+
     init(head: Node<T>) {
         self.head = head
     }
-    
+
     func isEmpty() -> Bool {
         return head == nil
     }
-    
+
     var first: Node<T>? {
         return head
     }
-    
+
     var last: Node<T>? {
         return tail
     }
-    
+
     func append(_ value: T) {
         // create new node
         let newNode = Node(value : value)
@@ -49,12 +51,12 @@ class LinkedList<T> {
         // update the tail pointer
         tail = newNode
     }
-    
+
     func removeAll() {
         head = nil
         tail = nil
     }
-    
+
     func nodeAt(index: Int) -> Node<T>? {
         if(index >= 0 && index < count) {
             var node = head
@@ -67,7 +69,7 @@ class LinkedList<T> {
         }
         return nil
     }
-    
+
     var count: Int {
         var count = 0
         var node = head
@@ -91,3 +93,18 @@ extension LinkedList : CustomStringConvertible {
         return text + "]"
     }
 }
+
+let list = LinkedList<String>()
+list.append("Dog")
+list.append("Cat")
+list.append("Horse")
+list.append("Lion")
+
+if let node = list.nodeAt(index: 6) {
+    print("\(node.value)")
+} else {
+    print("Index out of bounds")
+}
+
+list.count
+list.description
