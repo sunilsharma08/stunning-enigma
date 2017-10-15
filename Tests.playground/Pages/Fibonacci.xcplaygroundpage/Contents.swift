@@ -1,3 +1,5 @@
+//: [Previous](@previous)
+
 import Foundation
 
 func fibonacci(of num: Int) -> Int {
@@ -7,3 +9,8 @@ func fibonacci(of num: Int) -> Int {
         return fibonacci(of: num - 1) + fibonacci(of: num - 2)
     }
 }
+
+let num = 2
+print("Fibonacci of \(num) : \(fibonacci(of : num))")
+
+//: [Next](@next)

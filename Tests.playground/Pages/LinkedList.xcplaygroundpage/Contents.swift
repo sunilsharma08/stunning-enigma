@@ -1,4 +1,3 @@
-//: Playground - noun: a place where people can play
 
 import UIKit
 
@@ -108,3 +107,5 @@ if let node = list.nodeAt(index: 6) {
 
 list.count
 list.description
+
+//: [Next](@next)

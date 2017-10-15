@@ -1,3 +1,5 @@
+//: [Previous](@previous)
+
 import Foundation
 
 func binarySearch<T: Comparable>(_ array: [T], _ object: T, _ range: Range<Int>) -> Int? {
@@ -33,3 +35,20 @@ func binarySearch<T: Comparable>(_ array: [T], _ object: T) -> Int? {
     
     return nil
 }
+
+let sortedArray: [Int] = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+let elementToFind = 9
+
+if let index = binarySearch(sortedArray, elementToFind, 0..<sortedArray.count) {
+    print("\(elementToFind) found at index \(index)")
+} else {
+    print("\(elementToFind) not found !!")
+}
+
+if let index = binarySearch(sortedArray, elementToFind) {
+    print("\(elementToFind) found at index \(index)")
+} else {
+    print("\(elementToFind) not found !!")
+}
+
+//: [Next](@next)
