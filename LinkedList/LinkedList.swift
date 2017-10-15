@@ -67,6 +67,20 @@ class LinkedList<T>{
         return nil
     }
 
+    func reverseList() -> Node<T>?{
+        var prev,current,next : Node<T>?;
+        prev = nil;
+        current = head;
+        while current != nil{
+            next = current!.next;
+            current!.next = prev;
+            prev = current;
+            current = next;
+        }
+        head = prev;
+        return head;
+    }
+
     var count : Int{
         var count = 0
         var node : Node? = head
@@ -91,15 +105,18 @@ extension LinkedList : CustomStringConvertible {
 }
 
 let list = LinkedList<String>()
-list.append(value : "Dog")
-list.append(value : "Cat")
-list.append(value : "Horse")
-list.append(value : "Lion")
+list.append( "Dog")
+list.append("Cat")
+list.append("Horse")
+list.append("Lion")
 // list.removeAll()
+print(list)
+print("Revesing Linked List")
+let _ = list.reverseList()
 print(list)
 
 if let node = list.nodeAt(index : 6) {
-    print("\(node.value)")
+    print("Valud of node at index 6 : \(node.value)")
 }else{
     print("Index out of bounds")
 }

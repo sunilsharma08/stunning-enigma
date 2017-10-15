@@ -39,16 +39,20 @@ extension TreeNode : CustomStringConvertible {
 extension TreeNode where T : Equatable {
 
     public func search(_ value : T) -> TreeNode? {
+        // If value of current node have the value to be find
         if value ==  self.value {
+            // return current node
             return self
         }
-
+        // loop through child from children array
         for child in children{
+            // search for value in each child node
+            // if found then return it
             if let found = child.search(value){
                 return found
             }
         }
-
+        // if nothing is found return nil
         return nil
     }
 }
