@@ -4,23 +4,23 @@ import Foundation
 
 struct Queue<T> {
     private var array: [T] = []
-    
+
     var front: T? {
         return array.first
     }
-    
+
     var isEmpty: Bool {
         return array.isEmpty
     }
-    
+
     mutating func enqueue(_ value: T) {
         array.append(value)
     }
-    
+
     mutating func dequque() -> T? {
         return array.removeFirst()
     }
-    
+
 }
 
 extension Queue : CustomStringConvertible {
@@ -28,7 +28,7 @@ extension Queue : CustomStringConvertible {
         let topDivider = "---Queue---\n"
         let queueElements = array.map {"\($0)"}.joined(separator : "\n")
         let bottomDivider = "\n-----------\n"
-        
+
         return topDivider + queueElements + bottomDivider
     }
 }

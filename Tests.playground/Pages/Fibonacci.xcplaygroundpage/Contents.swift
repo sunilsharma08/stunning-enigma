@@ -10,7 +10,7 @@ func fibonacci(of num: Int) -> Int {
     }
 }
 
-let num = 2
+let num = 22
 print("Fibonacci of \(num) : \(fibonacci(of : num))")
 
 //: [Next](@next)

@@ -4,7 +4,7 @@ class Node<T> {
     var value: T
     var next: Node?
     weak var prev: Node?
-    
+
     init(value: T) {
         self.value = value
     }
@@ -13,25 +13,28 @@ class Node<T> {
 class LinkedList<T> {
     var head: Node<T>?
     var tail: Node<T>?
-    
+
     init() {}
-    
+
     init(head: Node<T>) {
         self.head = head
     }
-    
+
     func isEmpty() -> Bool {
         return head == nil
     }
-    
+
     var first: Node<T>? {
         return head
     }
-    
+
     var last: Node<T>? {
         return tail
     }
     
+    /// Add a new element to the list
+    ///
+    /// - Parameter value: The new element to add
     func append(_ value: T) {
         // create new node
         let newNode = Node(value : value)
@@ -50,11 +53,16 @@ class LinkedList<T> {
         tail = newNode
     }
     
+    /// Removes all the elements from the list
     func removeAll() {
         head = nil
         tail = nil
     }
-    
+
+    /// Returns the `Node` at a specific position of the list.
+    ///
+    /// - Parameter index: The index Int
+    /// - Returns: The `Node`
     func nodeAt(index: Int) -> Node<T>? {
         if(index >= 0 && index < count) {
             var node = head
@@ -67,7 +75,8 @@ class LinkedList<T> {
         }
         return nil
     }
-    
+
+    /// Returns the amount of node in the list
     var count: Int {
         var count = 0
         var node = head

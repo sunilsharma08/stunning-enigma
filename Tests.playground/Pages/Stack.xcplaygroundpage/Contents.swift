@@ -2,27 +2,27 @@
 
 struct Stack<T> {
     private var array: [T] = []
-    
+
     var isEmpty: Bool {
         return array.isEmpty
     }
-    
+
     mutating func push(_ value: T) {
         array.append(value)
     }
-    
+
     mutating func pop() -> T? {
         return array.popLast()
     }
-    
+
     func peek() -> T? {
         return array.last
     }
-    
+
     var count: Int {
         return array.count
     }
-    
+
 }
 
 extension Stack : CustomStringConvertible {
