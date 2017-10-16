@@ -77,6 +77,21 @@ class LinkedList<T> {
     }
 
     /// Returns the amount of node in the list
+    func reverseList() -> Node<T>? {
+        var prev,current,next: Node<T>?
+        prev = nil
+        current = head
+        while current != nil{
+            next = current!.next
+            current!.next = prev
+            prev = current
+            current = next
+        }
+        head = prev
+        return head
+    }
+    
+    /// Returns the amount of node in the list
     var count: Int {
         var count = 0
         var node = head
