@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class Node<T> {
     var value: T
@@ -31,10 +31,7 @@ class LinkedList<T> {
     var last: Node<T>? {
         return tail
     }
-    
-    /// Add a new element to the list
-    ///
-    /// - Parameter value: The new element to add
+
     func append(_ value: T) {
         // create new node
         let newNode = Node(value : value)
@@ -52,17 +49,12 @@ class LinkedList<T> {
         // update the tail pointer
         tail = newNode
     }
-    
-    /// Removes all the elements from the list
+
     func removeAll() {
         head = nil
         tail = nil
     }
 
-    /// Returns the `Node` at a specific position of the list.
-    ///
-    /// - Parameter index: The index Int
-    /// - Returns: The `Node`
     func nodeAt(index: Int) -> Node<T>? {
         if(index >= 0 && index < count) {
             var node = head
@@ -76,22 +68,6 @@ class LinkedList<T> {
         return nil
     }
 
-    /// Returns the amount of node in the list
-    func reverseList() -> Node<T>? {
-        var prev,current,next: Node<T>?
-        prev = nil
-        current = head
-        while current != nil{
-            next = current!.next
-            current!.next = prev
-            prev = current
-            current = next
-        }
-        head = prev
-        return head
-    }
-    
-    /// Returns the amount of node in the list
     var count: Int {
         var count = 0
         var node = head
@@ -115,3 +91,20 @@ extension LinkedList : CustomStringConvertible {
         return text + "]"
     }
 }
+
+let list = LinkedList<String>()
+list.append("Dog")
+list.append("Cat")
+list.append("Horse")
+list.append("Lion")
+
+if let node = list.nodeAt(index: 6) {
+    print("\(node.value)")
+} else {
+    print("Index out of bounds")
+}
+
+list.count
+list.description
+
+//: [Next](@next)

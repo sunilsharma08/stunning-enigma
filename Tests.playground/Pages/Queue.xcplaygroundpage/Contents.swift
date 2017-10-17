@@ -1,3 +1,7 @@
+//: [Previous](@previous)
+
+import Foundation
+
 struct Queue<T> {
     private var array: [T] = []
 
@@ -28,3 +32,14 @@ extension Queue : CustomStringConvertible {
         return topDivider + queueElements + bottomDivider
     }
 }
+
+var q = Queue<Int>()
+
+q.enqueue(3)
+q.enqueue(2)
+q.enqueue(1)
+var a = q.dequque()
+a = q.dequque()
+print(q)
+
+//: [Next](@next)
